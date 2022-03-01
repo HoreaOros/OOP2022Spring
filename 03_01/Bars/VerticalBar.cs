@@ -1,12 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 internal class VerticalBar
 {
-    private int height;
+    private uint height;
 
-    public VerticalBar(int height)
+    public VerticalBar(uint height)
     {
         this.height = height;
-        for (int i = 0; i < height; i++)
+        for (uint i = 0; i < height; i++)
         {
             Console.WriteLine('|');
         }

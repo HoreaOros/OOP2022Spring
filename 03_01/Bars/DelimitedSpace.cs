@@ -9,7 +9,7 @@
             VerticalBar vb = new(1);
             for (int i = 1; i <= length-2; i++)
             {
-                Console.Write("\s");
+                Console.Write(" ");
             }
             vb = new(1);//pentru ca bara este desenata numai la instantierea constructorului, trebuie sa inlocuiesc variabila cu o instanta noua
             Console.WriteLine();

@@ -13,7 +13,5 @@
             {
                 DelimitedSpace ds = new(length);
             }
-            hb = new(length);
-        }
     }
 }

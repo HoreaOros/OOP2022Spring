@@ -4,7 +4,7 @@ internal class Frame
     private HorizontalBar h1, h2;
     private VerticalBar v;
 
-    public Frame(int length, int height)
+    public Frame(uint length, uint height)
     {
         h1 = new HorizontalBar(length);
         v = new VerticalBar(height);

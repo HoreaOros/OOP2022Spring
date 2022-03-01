@@ -1,12 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 internal class HorizontalBar
 {
-    private int length;
+    private uint length;
 
-    public HorizontalBar(int length)
+    public HorizontalBar(uint length)
     {
         this.length = length;
-        for (int i = 0; i < length; i++)
+        for (uint i = 0; i < length; i++)
         {
             Console.Write('-');
         }
