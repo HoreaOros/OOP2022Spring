@@ -6,6 +6,11 @@ internal class VerticalBar
     public VerticalBar(uint height)
     {
         this.height = height;
+        if(height==1)
+        {
+            Console.Write("|");
+            return;
+        }
         for (uint i = 0; i < height; i++)
         {
             Console.WriteLine('|');

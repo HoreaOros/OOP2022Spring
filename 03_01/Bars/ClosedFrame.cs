@@ -9,9 +9,11 @@
             this.length = length;
             this.height = height;
             HorizontalBar hb = new(length);
-            for (int i = 0; i < height-2; i++)
+            for (int i = 1; i < height ; i++)
             {
                 DelimitedSpace ds = new(length);
             }
+            hb = new(length);
+        }
     }
 }
