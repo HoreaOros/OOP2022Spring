@@ -48,6 +48,16 @@ internal class MyDate
         }
     }
 
+    public Day DayOfWeek
+    {
+        get => GetDayOfWeek();
+    }
+
+    public int DayOfYear
+    {
+        get => GetDayOfYear();
+    }
+
     /// <summary>
     /// Copy constructor
     /// </summary>
@@ -78,7 +88,7 @@ internal class MyDate
           .ToString();
     }
     
-    public Day GetDayOfWeek()
+    private Day GetDayOfWeek()
     {
         int century = _year / 100;
         int lastDigitsOfYear = _month < 3 ? _year % 100 - 1 : _year % 100;
@@ -93,7 +103,7 @@ internal class MyDate
         return Enum.Parse<Day>(day.ToString());
     }
     
-    public int GetDayOfYear()
+    private int GetDayOfYear()
     {
         int day = 0;
         for (int i = 1; i < _month; ++i)
