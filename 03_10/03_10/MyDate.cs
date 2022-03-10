@@ -90,8 +90,8 @@ public class MyDate
     
     private Day GetDayOfWeek()
     {
-        int century = _year / 100;
-        int lastDigitsOfYear = _month < 3 ? _year % 100 - 1 : _year % 100;
+        int century = _month < 3 ? (_year - 1) / 100 : _year / 100;
+        int lastDigitsOfYear = _month < 3 ? (_year - 1) % 100 : _year % 100;
         int month = _month switch
         {
             1 => 11,
