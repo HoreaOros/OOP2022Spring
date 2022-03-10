@@ -151,10 +151,9 @@ public class MyDate
                 _month = 1;
                 _year += 1;
             }
-
-            _day = 1 + (_day - GetDaysOfMonth());
+            _day -= GetDaysOfMonth();
         }
-        
+
         return this;
     }
 
