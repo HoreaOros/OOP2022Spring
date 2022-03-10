@@ -8,7 +8,7 @@ using _03_10;
 // getter/setter pentru cele 3 componente cu validare la setter
 // AddDays, AddYear, AddMonths etc. 
 
-internal class MyDate
+public class MyDate
 {
     private int _year;
     private int _month;
@@ -71,9 +71,9 @@ internal class MyDate
 
     public MyDate(int year, int month, int day)
     {
-        this._year = year;
-        this._month = month;
-        this._day = day;
+        _year = year;
+        _month = month;
+        _day = day;
     }
     public override string ToString()
     {
@@ -209,7 +209,7 @@ internal class MyDate
     internal int DaysTo(MyDate d2)
     {
         MyDate minDate, maxDate;
-        if (this.LessThan(d2))
+        if (LessThan(d2))
         {
             minDate = new MyDate(this);
             maxDate = new MyDate(d2);
@@ -284,23 +284,23 @@ internal class MyDate
         //    return true;
         //else
         //    return false;
-        return (this._day == d._day 
-             && this._month == d._month 
-             && this._year == d._year);
+        return _day == d._day 
+               && _month == d._month 
+               && _year == d._year;
     }
 
     internal bool LessThan(MyDate d2)
     {
         bool result;
-        if (this._year < d2._year)
+        if (_year < d2._year)
             result = true;
-        else if (this._year > d2._year)
+        else if (_year > d2._year)
             result = false;
-        else if (this._month < d2._month)
+        else if (_month < d2._month)
             result = true;
-        else if (this._month > d2._month)
+        else if (_month > d2._month)
             result = false;
-        else if (this._day < d2._day)
+        else if (_day < d2._day)
             result = true;
         else
             result = false;
@@ -317,7 +317,17 @@ internal class MyDate
     {
         return d1 != d2 && !(d1 > d2);
     }
-    
+
+    public static bool operator ==(MyDate d1, MyDate d2)
+    {
+        return d1.IsEqual(d2);
+    }
+
+    public static bool operator !=(MyDate d1, MyDate d2)
+    {
+        return !d1.IsEqual(d2);
+    }
+
     public static MyDate operator -(MyDate d1, MyDate d2)
     {
         MyDate date = d1 > d2 ? new MyDate(d1.Year - d2.Year, d1.Month - d2.Month, d1.Day - d2.Day) : 
@@ -355,7 +365,7 @@ internal class MyDate
                 date.Year += 1;
             }
 
-            date._day = 1 + (date._day - date.GetDaysOfMonth());
+            date._day -= date.GetDaysOfMonth();
         }
 
         if (date._month > 12)
@@ -364,5 +374,22 @@ internal class MyDate
             date.Year += 1;
         }
         return date;
+    }
+
+    private bool Equals(MyDate other)
+    {
+        return IsEqual(other);
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        return obj.GetType() == GetType() && Equals((MyDate) obj);
+    }
+    
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(_year, _month, _day);
     }
 }
