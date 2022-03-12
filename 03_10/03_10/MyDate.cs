@@ -98,7 +98,7 @@ public class MyDate
         };
         int day = (int) (_day + Math.Floor(2.6 * month - 0.2) - 2 * century + lastDigitsOfYear +
                          Math.Floor(lastDigitsOfYear / 4.0) + Math.Floor(century / 4.0)) % 7;
-        return Enum.Parse<Day>(day.ToString());
+        return Enum.Parse<Day>((day < 0 ? day + 7 : day).ToString());
     }
     
     private int GetDayOfYear()
@@ -141,16 +141,49 @@ public class MyDate
     public MyDate AddDays(int days)
     {
         _day += days;
-        while (_day > GetDaysOfMonth())
+        if (days > 0)
         {
-            _month += 1;
-            if (_month > 12)
+            while (_day > GetDaysOfMonth())
             {
-                _month = 1;
-                _year += 1;
+                //_month += 1;
+                if (_month == 12)
+                {
+                    _month = 1;
+                    _year += 1;
+                    _day -= GetDaysOfMonth();
+                }
+                else
+                {
+                    _day -= GetDaysOfMonth();
+                    _month += 1;
+                }
             }
-            _day -= GetDaysOfMonth();
         }
+        else
+        {
+            while (_day < 1)
+            {
+                if (_month == 1)
+                {
+                    _month = 12;
+                    _year -= 1;
+                    _day += GetDaysOfMonth();
+                }
+                else
+                {
+                    
+                    _month -= 1;
+                    _day += GetDaysOfMonth();
+                }
+            }
+            /*if (_month == 0)
+            {
+                _month = 12;
+                _year -= 1;
+            }*/
+        }
+        _month = _day <= 0 ? _month - 1 : _month;
+        _day = _day <= 0 ? _day + GetDaysOfMonth() : _day;
 
         return this;
     }
@@ -158,11 +191,15 @@ public class MyDate
     public MyDate AddMonths(int months)
     {
         _month += months;
-        if (_month > 12)
+        if (_month > 0)
         {
-            _year += _month / 12;
-            _month %= 12;
+            if (_month > 12)
+            {
+                _year += _month / 12;
+                _month %= 12;
+            }
         }
+        
 
         return this;
     }
