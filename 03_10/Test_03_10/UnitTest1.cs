@@ -62,6 +62,7 @@ public class Tests
         Assert.That(new MyDate(2022, 3, 11).DayOfWeek, Is.EqualTo(Day.Friday));
         Assert.That(new MyDate(1900, 1, 1).DayOfWeek, Is.EqualTo(Day.Monday));
         Assert.That(new MyDate(345, 2, 1).DayOfWeek, Is.EqualTo(Day.Thursday));
+        Assert.That(new MyDate(123, 4, 5).DayOfWeek, Is.EqualTo(Day.Monday));
     }
 
     [Test]
