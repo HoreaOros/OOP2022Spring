@@ -176,11 +176,6 @@ public class MyDate
                     _day += GetDaysOfMonth();
                 }
             }
-            /*if (_month == 0)
-            {
-                _month = 12;
-                _year -= 1;
-            }*/
         }
         _month = _day <= 0 ? _month - 1 : _month;
         _day = _day <= 0 ? _day + GetDaysOfMonth() : _day;
@@ -193,13 +188,21 @@ public class MyDate
         _month += months;
         if (_month > 0)
         {
-            if (_month > 12)
+            while (_month > 12)
             {
-                _year += _month / 12;
-                _month %= 12;
+                _year += 1;
+                _month -= 12;
             }
         }
-        
+        else
+        {
+            while (_month < 1)
+            {
+                _year -= 1;
+                _month += 12;
+            }
+        }
+
 
         return this;
     }
