@@ -1,7 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
 using System.Text;
 using _03_10;
 
@@ -86,7 +85,11 @@ public class MyDate
           .Append("]")
           .ToString();
     }
-    
+
+    /// <summary>
+    /// Returns the day of the week represented by this object.
+    /// </summary>
+    /// <returns>the <see cref="Day"/> that this object represents.</returns>
     private Day GetDayOfWeek()
     {
         int century = _month < 3 ? (_year - 1) / 100 : _year / 100;
@@ -102,6 +105,10 @@ public class MyDate
         return Enum.Parse<Day>((day < 0 ? day + 7 : day).ToString());
     }
     
+    /// <summary>
+    /// Returns how many days have passed since the start of the year.
+    /// </summary>
+    /// <returns>the number of days that have passed since the start of the year.</returns>
     private int GetDayOfYear()
     {
         int day = 0;
@@ -139,6 +146,11 @@ public class MyDate
         return day;
     }
 
+    /// <summary>
+    /// Adds the given number of days to this object.
+    /// </summary>
+    /// <param name="days">the number of days that will be added.</param>
+    /// <returns>this object.</returns>
     public MyDate AddDays(int days)
     {
         _day += days;
@@ -184,6 +196,11 @@ public class MyDate
         return this;
     }
 
+    /// <summary>
+    /// Adds the given number of months to this object.
+    /// </summary>
+    /// <param name="months">the number of months that will be added.</param>
+    /// <returns>this object.</returns>
     public MyDate AddMonths(int months)
     {
         _month += months;
@@ -206,12 +223,21 @@ public class MyDate
         return this;
     }
 
+    /// <summary>
+    /// Adds the given number of years to this object.
+    /// </summary>
+    /// <param name="years">the number of years that will be added.</param>
+    /// <returns>this object.</returns>
     public MyDate AddYears(int years)
     {
         _year += years;
         return this;
     }
     
+    /// <summary>
+    /// Returns the number of days the current month has. Takes leap years into account.
+    /// </summary>
+    /// <returns>the number of days in the current month.</returns>
     private int GetDaysOfMonth()
     {
         switch (_month)
@@ -242,6 +268,11 @@ public class MyDate
         }
     }
 
+    /// <summary>
+    /// Returns the number of days to the given date.
+    /// </summary>
+    /// <param name="d2">the date to which the number of days will be calculated.</param>
+    /// <returns>the number of days to the second date.</returns>
     internal int DaysTo(MyDate d2)
     {
         MyDate minDate, maxDate;
@@ -267,6 +298,9 @@ public class MyDate
         return diff;
     }
 
+    /// <summary>
+    /// Subtracts one day from this object.
+    /// </summary>
     private void Decrement()
     {
         if (_day > 1)
@@ -309,11 +343,20 @@ public class MyDate
         }
     }
 
+    /// <summary>
+    /// Returns whether or not this year is a leap year.
+    /// </summary>
+    /// <returns>true if the year is a leap year (divides by 4 or by 400), false otherwise.</returns>
     private bool IsLeapYear()
     {
         return (_year % 4 == 0 && _year % 100 != 0) || (_year % 400 == 0);
     }
 
+    /// <summary>
+    /// Compares this object to another object.
+    /// </summary>
+    /// <param name="d">the object that will be used for the comparison.</param>
+    /// <returns>whether or not the two objects are equal.</returns>
     public bool IsEqual(MyDate d)
     {
         return _day == d._day 
@@ -321,6 +364,11 @@ public class MyDate
                && _year == d._year;
     }
 
+    /// <summary>
+    /// Returns whether or not this object represents a date that is before the other one.
+    /// </summary>
+    /// <param name="d2">the date against which the comparison will be performed.</param>
+    /// <returns>whether or not the given date is "larger" than the date represented by this object.</returns>
     internal bool LessThan(MyDate d2)
     {
         bool result;
@@ -338,6 +386,23 @@ public class MyDate
             result = false;
 
         return result;
+    }
+    
+    /// <summary>
+    /// Compares this object against a generic object.
+    /// </summary>
+    /// <param name="obj">the object against which the comparison will be performed.</param>
+    /// <returns>whether or not the two object are the same.</returns>
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        return obj.GetType() == GetType() && IsEqual((MyDate) obj);
+    }
+    
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(_year, _month, _day);
     }
     
     public static bool operator >(MyDate d1, MyDate d2)
@@ -406,22 +471,5 @@ public class MyDate
             date.Year += 1;
         }
         return date;
-    }
-
-    private bool Equals(MyDate other)
-    {
-        return IsEqual(other);
-    }
-
-    public override bool Equals(object? obj)
-    {
-        if (ReferenceEquals(null, obj)) return false;
-        if (ReferenceEquals(this, obj)) return true;
-        return obj.GetType() == GetType() && Equals((MyDate) obj);
-    }
-    
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(_year, _month, _day);
     }
 }
