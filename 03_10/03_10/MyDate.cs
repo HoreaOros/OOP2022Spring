@@ -27,8 +27,11 @@ public class MyDate
         {
             if (_month is > 12 or < 1)
             {
-                throw new ValidationException();
+                throw new ValidationException("Month cannot be greater than 12 or less than 1.");
             }
+
+            if (_day > GetDaysOfMonth())
+                _day = GetDaysOfMonth();
 
             _month = value;
         }
@@ -41,22 +44,17 @@ public class MyDate
         {
             if (_day > GetDaysOfMonth() || _day < 1)
             {
-                throw new ValidationException();
+                throw new ValidationException($"Day cannot be more than {GetDaysOfMonth()} or less than 1.");
             }
 
             _day = value;
         }
     }
 
-    public Day DayOfWeek
-    {
-        get => GetDayOfWeek();
-    }
-
-    public int DayOfYear
-    {
-        get => GetDayOfYear();
-    }
+    public Day DayOfWeek => GetDayOfWeek();
+    public int DayOfYear => GetDayOfYear();
+    public int DaysOfMonth => GetDaysOfMonth();
+    public bool LeapYear => IsLeapYear();
 
     /// <summary>
     /// Copy constructor
@@ -175,7 +173,7 @@ public class MyDate
         return this;
     }
     
-    public int GetDaysOfMonth()
+    private int GetDaysOfMonth()
     {
         switch (_month)
         {
@@ -272,17 +270,13 @@ public class MyDate
         }
     }
 
-    public bool IsLeapYear()
+    private bool IsLeapYear()
     {
         return (_year % 4 == 0 && _year % 100 != 0) || (_year % 400 == 0);
     }
 
     public bool IsEqual(MyDate d)
     {
-        //if (this.day == d.day && this.month == d.month && this.year == d.year)
-        //    return true;
-        //else
-        //    return false;
         return _day == d._day 
                && _month == d._month 
                && _year == d._year;
