@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Text;
 using _03_10;
 
@@ -186,21 +187,19 @@ public class MyDate
     public MyDate AddMonths(int months)
     {
         _month += months;
+        Console.WriteLine($"{_month} {months}");
         if (_month > 0)
         {
-            while (_month > 12)
-            {
-                _year += 1;
-                _month -= 12;
-            }
+            int years = (int)Math.Floor(_month / 12.0);
+            _month = (_month - years * 12) == 0 ? 12 : (_month - years * 12);
+            _year = _month == 12 ? years + _year - 1 : _year + years;
         }
         else
         {
-            while (_month < 1)
-            {
-                _year -= 1;
-                _month += 12;
-            }
+            int years = (int) Math.Abs(Math.Floor(_month / 12.0));
+            
+            _month = (_month + years * 12) == 0 ? 12 : (_month + years * 12);
+            _year = _month == 12 ? _year - years - 1 : _year - years;
         }
 
 
