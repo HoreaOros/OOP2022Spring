@@ -6,7 +6,8 @@
 //DateTime d2 = d1.AddYears(-22);
 //Console.WriteLine(d2);
 
-// TODO: studiati tipurile de date DateTime si DateTimeOffset. 
+// TODO: studiati tipurile de date DateTime si DateTimeOffset.
+using _03_10;
 
 DateTime dt = DateTime.Now;
 
