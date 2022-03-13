@@ -56,6 +56,8 @@ public class MyDate
     public int DaysOfMonth => GetDaysOfMonth();
     public bool LeapYear => IsLeapYear();
 
+    public string MonthString => Enum.Parse<Month>(_month.ToString()).ToString();
+
     /// <summary>
     /// Copy constructor
     /// </summary>
@@ -84,6 +86,11 @@ public class MyDate
           .Append(_year.ToString())
           .Append("]")
           .ToString();
+    }
+
+    public string ToString(string? format)
+    {
+        return MyDateFormat.Format(this, format);
     }
 
     /// <summary>
