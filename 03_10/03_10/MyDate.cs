@@ -8,6 +8,8 @@ using _03_10;
 // getter/setter pentru cele 3 componente cu validare la setter
 // AddDays, AddYear, AddMonths etc. 
 
+namespace _03_10;
+
 public class MyDate
 {
     private int _year;
@@ -56,7 +58,28 @@ public class MyDate
     public int DaysOfMonth => GetDaysOfMonth();
     public bool LeapYear => IsLeapYear();
 
-    public string MonthString => Enum.Parse<Month>(_month.ToString()).ToString();
+    public string MonthString
+    {
+        get
+        {
+            return _month switch
+            {
+                1 => _03_10.Month.January.ToString(),
+                2 => _03_10.Month.February.ToString(),
+                3 => _03_10.Month.March.ToString(),
+                4 => _03_10.Month.April.ToString(),
+                5 => _03_10.Month.May.ToString(),
+                6 => _03_10.Month.June.ToString(),
+                7 => _03_10.Month.July.ToString(),
+                8 => _03_10.Month.August.ToString(),
+                9 => _03_10.Month.September.ToString(),
+                10 => _03_10.Month.October.ToString(),
+                11 => _03_10.Month.November.ToString(),
+                12 => _03_10.Month.December.ToString(),
+                _ => _03_10.Month.January.ToString()
+            };
+        }
+    }
 
     /// <summary>
     /// Copy constructor
@@ -109,7 +132,17 @@ public class MyDate
         };
         int day = (int) (_day + Math.Floor(2.6 * month - 0.2) - 2 * century + lastDigitsOfYear +
                          Math.Floor(lastDigitsOfYear / 4.0) + Math.Floor(century / 4.0)) % 7;
-        return Enum.Parse<Day>((day < 0 ? day + 7 : day).ToString());
+
+        return (day < 0 ? day + 7 : day) switch
+        {
+            0 => _03_10.Day.Sunday,
+            1 => _03_10.Day.Monday,
+            2 => _03_10.Day.Tuesday,
+            3 => _03_10.Day.Wednesday,
+            4 => _03_10.Day.Thursday,
+            5 => _03_10.Day.Friday,
+            6 => _03_10.Day.Saturday,
+        };
     }
     
     /// <summary>
