@@ -9,8 +9,7 @@ namespace Test_03_10;
 
 public class Tests
 {
-    
-    static IEnumerable<TestCaseData> DayOfWeekCases
+    private static IEnumerable<TestCaseData> DayOfWeekCases
     {
         get
         {
@@ -30,7 +29,7 @@ public class Tests
         }
     }
 
-    static IEnumerable<TestCaseData> DayOfYearCases
+    private static IEnumerable<TestCaseData> DayOfYearCases
     {
         get
         {
@@ -50,7 +49,7 @@ public class Tests
         }
     }
 
-    static IEnumerable<TestCaseData> DayAdditionCases
+    private static IEnumerable<TestCaseData> DayAdditionCases
     {
         get
         {
@@ -65,7 +64,7 @@ public class Tests
         }
     }
 
-    static IEnumerable<TestCaseData> MonthAdditionCases
+    private static IEnumerable<TestCaseData> MonthAdditionCases
     {
         get
         {
