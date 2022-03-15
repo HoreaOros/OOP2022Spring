@@ -1,8 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using System.Text;
+
 // TODO: extindeti clasa MyDate cu alte operatii specifice. 
 // getter/setter pentru cele 3 componente cu validare la setter
 // AddDays, AddYear, AddMonths etc. 
+
+using System.Text;
 
 internal class MyDate
 {
