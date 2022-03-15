@@ -53,6 +53,16 @@ internal class MyStack
         }
     }
 
+    internal int Peek()
+    {
+        if (IsEmpty)
+        {
+            throw new StackEmptyException();
+        }
+
+        return data[_count - 1];
+    }
+
     internal int Pop()
     {
         if (_count > 0)

@@ -3,6 +3,9 @@ Console.WriteLine("Hello, World!");
 
 MyStack s = new MyStack();
 
+
+
+// PUSH
 Console.WriteLine(s.IsEmpty ? "Stiva nu contine nici un element" : "In stiva sunt elemente");
 s.Push(1);
 Console.WriteLine(s.IsEmpty ? "Stiva nu contine nici un element" : "In stiva sunt elemente");
@@ -20,6 +23,8 @@ for (int i = 0; i < 42; i++)
 Console.WriteLine($"Capacitatea stivei este: {s.Capacity}");
 Console.WriteLine($"Numarul de elemente din stiva este: {s.Count}");
 
+
+// POP
 Console.WriteLine($"Dumping stack:");
 while (!s.IsEmpty)
 {
@@ -35,3 +40,9 @@ catch (StackEmptyException ex)
 {
     Console.WriteLine(ex.Message);
 }
+
+// PEEK
+s.Push(42);
+Console.WriteLine($"Numarul de elemente din stiva este: {s.Count}");
+Console.WriteLine($"Elementul din varful stivei este {s.Peek()}");
+Console.WriteLine($"Numarul de elemente din stiva este: {s.Count}");
