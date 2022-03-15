@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Collections.Generic;
+
 Console.WriteLine("Hello, World!");
 
 MyStack s = new MyStack();
@@ -46,3 +48,30 @@ s.Push(42);
 Console.WriteLine($"Numarul de elemente din stiva este: {s.Count}");
 Console.WriteLine($"Elementul din varful stivei este {s.Peek()}");
 Console.WriteLine($"Numarul de elemente din stiva este: {s.Count}");
+
+//Stack<string> ss = new Stack<string>();
+
+//ss.Push("abc");
+//ss.Push("def");
+//ss.Push("ghi");
+
+
+//while (ss.Count > 0)
+//{
+//    Console.WriteLine(ss.Pop());
+//}
+
+
+
+MyStack<string> myStack = new MyStack<string>();
+myStack.Push("abc");
+myStack.Push("def");
+myStack.Push("ghi");
+
+
+while (myStack.Count > 0)
+{
+    Console.WriteLine(myStack.Pop());
+}
+
+

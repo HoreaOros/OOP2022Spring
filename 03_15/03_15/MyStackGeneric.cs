@@ -1,8 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
-// TODO: adaugatu operatiile Contains (verifica daca in stiva exista o valoare) si Clear (elimina toate elementele din stiva)
-internal class MyStack
+internal class MyStack<T>
 {
-    private int[] data;
+    private T[] data;
     private int _capacity = 16;
     private int _count = 0;
     public bool IsEmpty
@@ -12,12 +11,12 @@ internal class MyStack
             return _count == 0;
         }
     }
-    public int Capacity 
-    { 
-        get 
-        { 
-            return _capacity; 
-        } 
+    public int Capacity
+    {
+        get
+        {
+            return _capacity;
+        }
     }
     public int Count
     {
@@ -28,10 +27,10 @@ internal class MyStack
     }
     public MyStack()
     {
-        data = new int[_capacity];
+        data = new T[_capacity];
     }
 
-    internal void Push(int val)
+    internal void Push(T val)
     {
         Console.WriteLine($"Se adauga valoarea {val} in stiva");
         if (_count < _capacity)
@@ -42,7 +41,7 @@ internal class MyStack
         else
         {
             _capacity *= 2;
-            int[] vs = new int[_capacity];
+            T[] vs = new T[_capacity];
             for (int i = 0; i < _count; i++)
             {
                 vs[i] = data[i];
@@ -54,7 +53,7 @@ internal class MyStack
         }
     }
 
-    internal int Peek()
+    internal T Peek()
     {
         if (IsEmpty)
         {
@@ -64,7 +63,7 @@ internal class MyStack
         return data[_count - 1];
     }
 
-    internal int Pop()
+    internal T Pop()
     {
         if (_count > 0)
         {
