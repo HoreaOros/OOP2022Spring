@@ -7,7 +7,6 @@ DateTime d1 = DateTime.Now;
 //DateTime d2 = d1.AddYears(-22);
 //Console.WriteLine(d2);
 
-// TODO: studiati tipurile de date DateTime, DateTimeOffset si TimeSpan. 
 
 MyDate d1 = new MyDate(2022, 3, 10);
 Console.WriteLine(d1);
