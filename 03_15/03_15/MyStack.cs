@@ -32,6 +32,7 @@ internal class MyStack
 
     internal void Push(int val)
     {
+        Console.WriteLine($"Se adauga valoarea {val} in stiva");
         if (_count < _capacity)
         {
             data[_count] = val;
@@ -46,6 +47,9 @@ internal class MyStack
                 vs[i] = data[i];
             }
             data = vs;
+
+            data[_count] = val;
+            _count++;
         }
     }
 }
