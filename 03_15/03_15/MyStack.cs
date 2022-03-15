@@ -52,4 +52,15 @@ internal class MyStack
             _count++;
         }
     }
+
+    internal int Pop()
+    {
+        if (_count > 0)
+        {
+            _count--;
+            return data[_count];
+        }
+        else
+            throw new StackEmptyException("S-a incercat eliminarea unui element dintr-o stiva goala");
+    }
 }

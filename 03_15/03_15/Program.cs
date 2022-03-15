@@ -19,3 +19,19 @@ for (int i = 0; i < 42; i++)
 
 Console.WriteLine($"Capacitatea stivei este: {s.Capacity}");
 Console.WriteLine($"Numarul de elemente din stiva este: {s.Count}");
+
+Console.WriteLine($"Dumping stack:");
+while (!s.IsEmpty)
+{
+    Console.Write($"{s.Pop()} ");
+}
+Console.WriteLine();
+
+try
+{
+    s.Pop();
+}
+catch (StackEmptyException ex)
+{
+    Console.WriteLine(ex.Message);
+}
