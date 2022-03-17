@@ -23,3 +23,11 @@ Console.WriteLine($"Numarul de elemente din stiva este: {s.Count}");
 
 s.Push(1);
 Console.WriteLine($"Elementul din varful stivei este: {s.Peek()}");
+
+MyStackGeneric<string> sg = new MyStackGeneric<string>();
+sg.Push("Hello");
+sg.Push("World!");
+
+while(sg.Count > 0)
+    Console.WriteLine(sg.Pop());
+
