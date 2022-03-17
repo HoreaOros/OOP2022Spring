@@ -25,6 +25,18 @@ internal class MyStack
         _count++;
     }
 
+    public int Peek()
+    {
+        if (Count > 0)
+        {
+            return _data[Count - 1];
+        }
+        else
+        {
+            throw new StackEmptyException("Am incercat sa examinez elementul din varful unei stive goale");
+        }
+    }
+
     public int Pop()
     {
 
