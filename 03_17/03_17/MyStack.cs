@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-internal class MyStack
+public class MyStack
 {
     private int[] _data;
     private int _capacity = 16;
