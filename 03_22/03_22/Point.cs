@@ -10,7 +10,9 @@ namespace _03_22
     {
         public double X { get; set; }
         public double Y { get; set; }
-
+        /// <summary>
+        /// Constructor implicit
+        /// </summary>
         public Point(): this (0, 0)
         {
             
