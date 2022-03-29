@@ -68,7 +68,7 @@ namespace _03_29.Tests
         public void ToStringTest()
         {
             // arrange 
-            Rational r1 = new Rational(1, 2);
+            Rational r1 = new Rational(2, 4);
             Rational r2 = new Rational(-1, 2);
             Rational r3 = new Rational(1, -2);
             Rational r4 = new Rational(-1, -2);

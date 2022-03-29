@@ -25,6 +25,8 @@
 
             Numarator = (uint)Math.Abs(numarator);
             Numitor = (uint)Math.Abs(numitor);
+
+            //Simplificare();
         }
         public Rational(int numarator): this(numarator, 1)
         {
@@ -63,5 +65,34 @@
                 result.Semn= Sign.Negativ;
             return result;
         }
+        public static Rational operator /(Rational r1, Rational r2)
+        {
+            Rational result = r1 * r2.Inverse();
+            return result;
+        }
+
+        private Rational Inverse()
+        {
+            Rational result = new Rational();
+            result.Numarator = this.Numitor;
+            result.Numitor = this.Numarator;
+            result.Semn = this.Semn;
+
+            return result;
+        }
+
+        private void Simplificare()
+        {
+            uint gcd;
+            gcd = Util.Gcd(this.Numitor, this.Numarator);
+            this.Numarator /= gcd;
+            this.Numitor /= gcd;
+        }
+        // TODO: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type
+        // implementati egalitatea structurala pentru clasa Rational. 
+
+        // TODO: implementati operatia de adunare si scadere a doua numere rationale. 
+
+        // TODO: implementati operatorii relationali <, >, >=, <=
     }
 }
