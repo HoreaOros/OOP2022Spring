@@ -61,6 +61,33 @@ namespace _03_22
             // TODO: formule pentru rotirea in jurul originii. 
 
         }
+
+        internal void WriteToConsole()
+        {
+            ConsoleColor color = Console.ForegroundColor;
+
+            switch(Color)
+            {
+                case Color.Albastru:
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    break;
+                case Color.Galben:
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    break;
+                case Color.Rosu:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case Color.Negru:
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    break;
+                case Color.Verde:
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
+            }
+            Console.WriteLine(this);
+
+            Console.ForegroundColor=color;
+        }
         #endregion
     }
 }

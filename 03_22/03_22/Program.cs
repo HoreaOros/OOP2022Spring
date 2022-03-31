@@ -9,9 +9,11 @@ Point p3 = new Point(3, 4);
 
 Console.WriteLine(p1);
 
+
 Point p4 = new Point(5);
 
 Point p5 = new Point(5.0, 6.0) { Color = Color.Verde};
+p5.WriteToConsole();
 
 Console.WriteLine(p5);
 
