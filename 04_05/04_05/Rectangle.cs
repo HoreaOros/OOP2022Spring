@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using _03_22;
 using System.Text;
-public class Rectangle: IEquatable<Rectangle>
+public class Rectangle : IEquatable<Rectangle>, IPolygon
 {
     public Point TopLeft { get; set; }
     public uint Width { get; set; }
@@ -14,6 +14,11 @@ public class Rectangle: IEquatable<Rectangle>
     }
 
     public Rectangle() : this(new Point(0, 0), 0, 0) { }
+
+    public uint ComputeArea() => Height * Width;
+
+    public uint ComputePerimeter() => 2 * Height + 2 * Width;
+
     public override bool Equals(object? obj) => Equals(obj as Rectangle);
     public override string ToString()
     {
@@ -46,6 +51,6 @@ public class Rectangle: IEquatable<Rectangle>
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(TopLeft.X, TopLeft.Y, Width, Height);  
+        return HashCode.Combine(TopLeft.X, TopLeft.Y, Width, Height);
     }
 }
