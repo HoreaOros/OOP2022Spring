@@ -1,6 +1,6 @@
 ﻿namespace _03_22
 {
-    enum Color
+    public enum Color
     {
         Negru,
         Rosu,
