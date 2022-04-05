@@ -7,10 +7,12 @@
     }
     public class Rational
     {
+        #region Properties
         public uint Numitor { get; set; }
         public uint Numarator { get; set; }
         public Sign Semn {get; set;}
-
+        #endregion
+        #region Constructors
         public Rational(int numarator, int numitor)
         {
             if (numitor == 0)
@@ -37,13 +39,13 @@
             // TODO: implementati parsingsul stringului
             // care trebuie sa fie de forma <numarator / numitor>
         }
-
+        
         private Rational()
         {
             Numarator = 0;
             Numitor = 0;
         }
-
+        #endregion
         public override string ToString()
         {
             string result = $"{Numarator} / {Numitor}";
@@ -90,7 +92,16 @@
         }
         // TODO: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type
         // implementati egalitatea structurala pentru clasa Rational. 
-
+        public static bool operator==(Rational r1, Rational r2)
+        {
+            return r1.Numarator == r2.Numarator &&
+                r1.Numitor == r2.Numitor &&
+                r1.Semn == r2.Semn;
+        }
+        public static bool operator !=(Rational r1, Rational r2)
+        {
+            return !(r1 == r2);
+        }
         // TODO: implementati operatia de adunare si scadere a doua numere rationale. 
 
         // TODO: implementati operatorii relationali <, >, >=, <=

@@ -68,7 +68,7 @@ namespace _03_29.Tests
         public void ToStringTest()
         {
             // arrange 
-            Rational r1 = new Rational(2, 4);
+            Rational r1 = new Rational(1, 2);
             Rational r2 = new Rational(-1, 2);
             Rational r3 = new Rational(1, -2);
             Rational r4 = new Rational(-1, -2);
@@ -88,6 +88,34 @@ namespace _03_29.Tests
             Assert.AreEqual(expected2, actual2);
             Assert.AreEqual(expected3, actual3);
             Assert.AreEqual(expected4, actual4);
+        }
+        [TestMethod()]
+        public void MultiplyTest()
+        {
+            // arrange
+            Rational r1 = new Rational(-2, 3);
+            Rational r2 = new Rational(-3, 4);
+
+            // act 
+            Rational actual = r1 * r2;
+            var expected = "<6 / 12>";
+
+            // assert
+            Assert.AreEqual(expected, actual.ToString());
+
+        }
+        [TestMethod()]
+        public void EqualityTest()
+        {
+            // arrange
+            Rational r1 = new Rational(1, 2);
+            Rational r2 = new Rational(1, 2);
+
+            // act
+            bool actual = (r1 == r2);
+            bool expected = true;
+            // assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }
