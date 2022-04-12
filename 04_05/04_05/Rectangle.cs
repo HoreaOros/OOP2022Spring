@@ -10,7 +10,8 @@ public class Rectangle : IEquatable<Rectangle>, IPolygon, ICloneable
 
     public Rectangle(Point topLeft, uint width, uint height)
     {
-        TopLeft = new Point(topLeft.X, topLeft.Y);
+        TopLeft = topLeft;
+        //TopLeft = new Point(topLeft.X, topLeft.Y);
         Width = width;
         Height = height;
     }
