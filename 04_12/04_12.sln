@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_12", "04_12\04_12.csproj", "{CB9B3A71-C5CD-480B-83AA-0C7A1C3F18EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algo", "algo\algo.csproj", "{B4D612AD-B71D-43EB-ABA9-F1CF35DDBD3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CB9B3A71-C5CD-480B-83AA-0C7A1C3F18EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB9B3A71-C5CD-480B-83AA-0C7A1C3F18EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB9B3A71-C5CD-480B-83AA-0C7A1C3F18EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4D612AD-B71D-43EB-ABA9-F1CF35DDBD3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4D612AD-B71D-43EB-ABA9-F1CF35DDBD3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4D612AD-B71D-43EB-ABA9-F1CF35DDBD3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4D612AD-B71D-43EB-ABA9-F1CF35DDBD3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
