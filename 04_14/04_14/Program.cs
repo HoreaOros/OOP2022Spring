@@ -10,7 +10,8 @@ namespace _04_14
     {
         static void Main(string[] args)
         {
-            Counter c = new Counter();
+            Counter c = new Counter("");
+
             c.Increment();
             int n = 10;
             while(n > 0)
@@ -18,8 +19,37 @@ namespace _04_14
                 c.Increment();
                 n--;
             }
-                
 
+            Console.WriteLine(c.Count);
+
+            Counter heads = new Counter("heads");
+            Counter tails = new Counter("tails");
+
+            Random rnd = new Random();
+            for (int i = 0; i < 10000; i++)
+            {
+                switch (rnd.Next(2))
+                {
+                    case 0:
+                        heads.Increment();
+                        break;
+                    case 1:
+                        tails.Increment();
+                        break;
+                }
+            }
+            Console.WriteLine($"Heads: {heads.Count}, Tails: {tails.Count}");
+
+            Console.WriteLine(heads);
+
+
+            ModulusCounter mc = new ModulusCounter(10, "zece");
+
+            for (int i = 0; i < 100; i++)
+            {
+                mc.Increment();
+                Console.WriteLine(mc);
+            }
         }
     }
 }
