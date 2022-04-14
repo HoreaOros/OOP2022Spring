@@ -7,6 +7,7 @@
         {
             this.modulus = modulus;
         }
+
         public override void Increment()
         {
             count = (count + 1) % modulus;
