@@ -50,6 +50,15 @@ namespace _04_14
                 mc.Increment();
                 Console.WriteLine(mc);
             }
+
+
+            MultiCounter multiCounter = new MultiCounter(4, 10);
+            for (int i = 0; i < 150; i++)
+            {
+                multiCounter.Increment();
+                Console.WriteLine(multiCounter.Value);
+            }
+            
         }
     }
 }

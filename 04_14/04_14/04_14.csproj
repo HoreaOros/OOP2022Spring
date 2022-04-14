@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChainedModulusCounter.cs" />
     <Compile Include="Counter.cs" />
     <Compile Include="ModulusCounter.cs" />
+    <Compile Include="MultiCounter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
