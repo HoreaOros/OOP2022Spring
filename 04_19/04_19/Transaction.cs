@@ -94,21 +94,21 @@ namespace _04_19
         {
             public int Compare(Transaction? x, Transaction? y)
             {
-                return x.nume.CompareTo(y.nume);
+                return x!.nume.CompareTo(y!.nume);
             }
         }
         public class DataOrder : IComparer<Transaction>
         {
             public int Compare(Transaction? x, Transaction? y)
             {
-                return x.data.CompareTo(y.data);
+                return x!.data.CompareTo(y!.data);
             }
         }
         public class SumaOrder : IComparer<Transaction>
         {
             public int Compare(Transaction? x, Transaction? y)
             {
-                return x.suma.CompareTo(y.suma);
+                return x!.suma.CompareTo(y!.suma);
             }
         }
         
