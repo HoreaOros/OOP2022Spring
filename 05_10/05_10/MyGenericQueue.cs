@@ -1,25 +1,30 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace _05_10
 {
-    internal class MyQueue
+    internal class MyGenericQueue<T> : IMyGenericQueue<T>
     {
         #region Data
-        private int[] data;
+        private T[] data;
         private int left = 0;
         private int right = 0;
         private int count = 0;
         #endregion
         #region Ctors
-        public MyQueue() : this(42)
+        public MyGenericQueue() : this(42)
         {
 
         }
 
 
 
-        public MyQueue(int n)
+        public MyGenericQueue(int n)
         {
-            data = new int[n];
+            data = new T[n];
         }
         #endregion
 
@@ -40,7 +45,7 @@ namespace _05_10
         }
         #endregion
         #region Methods
-        public void Enqueue(int val)
+        public void Enqueue(T val)
         {
             if (count < data.Length)
             {
@@ -59,9 +64,9 @@ namespace _05_10
                 throw new QueueFullException("Coada este plina");
 
         }
-        internal int Dequeue()
+        public T Dequeue()
         {
-            int result;
+            T result;
             if (count > 0)
             {
                 result = data[left];
@@ -73,6 +78,5 @@ namespace _05_10
                 throw new QueueEmptyException("Coada este goala");
         }
         #endregion
-
     }
 }
