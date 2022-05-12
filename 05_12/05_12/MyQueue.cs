@@ -35,11 +35,23 @@ public class MyQueue
                 tail = 0;
             }
             data[tail++] = val;
-            
+            Logger.Instance.Log($"Am adaugat valoarea {val} in coada");
             count++;
         }
         else
             throw new QueueFullException("Coada este plina");
+    }
+    public int Dequeue()
+    {
+        if (count > 0)
+        {
+            int val = data[head];
+            head = (head + 1) % capacity;
+            count--;
+            return val;
+        }
+        else
+            throw new QueueEmptyException("Coada este goala");
     }
     #endregion
 }
