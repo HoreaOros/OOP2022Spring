@@ -1,5 +1,5 @@
 ﻿// 2. Basic generic queue implementation
-public class MyQueue<T>
+public class MyGenericQueue<T>: IGenericQueue<T>
 {
     #region Fields
     T[] data;
@@ -8,10 +8,10 @@ public class MyQueue<T>
     int count;
     #endregion
     #region Ctors
-    public MyQueue() : this(42)
+    public MyGenericQueue() : this(42)
     {
     }
-    public MyQueue(int capacity)
+    public MyGenericQueue(int capacity)
     {
         this.capacity = capacity;
         data = new T[capacity];
