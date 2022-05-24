@@ -6,3 +6,6 @@ Algoritm a;
 
 // a = new Maxim2Algoritm();
 // a.Initiate();
+
+a = new NumararePerechiAlgoritm();
+a.Initiate();
